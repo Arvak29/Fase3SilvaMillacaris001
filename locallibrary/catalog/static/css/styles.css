@@ -552,6 +552,10 @@ img.avatar {
     padding-top: 0;
 }
 
+#model-content button {
+    margin-right: 100px;
+}
+
 .container input::placeholder{
     color: #1aff003b;
 }
