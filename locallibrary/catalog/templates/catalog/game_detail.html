@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container" id="canvas_r">
+    <div class="container">
+        <h2 id="sign_up">Game Created Correctly</h2>
+        <br>
+
+        <div class="row-md-2 justify-content-center" id="game_detail">
+            <div class="card text-center">
+              <div class="card-body">
+                
+                <img id="card" src="{{game.img.url}}" alt="">
+                
+                
+                <h4 class="card-title">{{ game.title| truncatechars:20 | safe }}</h4>
+                
+                <h4 id="game_details" class="card-title">{{game.price}} </h4>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label >Plataform: </label>
+            <h3 id="user_detail">{{game.plataform}}</h3>
+        </div>
+        
+        <div class="form-group">
+            <label >Description: </label>
+            <h3 id="user_detail">{{game.description}}</h3>
+        </div>
+        
+        <div class="form-group">
+            <label >Players: </label>
+            <h3 id="user_detail">{{game.players}}</h3>
+        </div>
+        
+        <div class="form-group">
+            <label >ID: </label>
+            <h3 id="user_detail">{{game.id}}</h3>
+        </div>
+        
+        <br><br>
+            <div id="button_r">
+                <!--<a class="btn" href="{% url 'index' %}">Continue</a>-->
+                <a class="btn" id="btn_addgame" href="/Store/{{game.plataform.id}}">Continue</a>
+            </div>
+            <br>
+            {% if request.user.is_superuser %}
+            <div id="button_r">
+                <a class="btn" id="btn_addgame" href="/game/{{game.id}}/delete/">Delete</a>
+            </div>
+            {% else %}
+            {% endif %}
+            </form>
+        <br><br>
+    </div>
+</div>
+
+{% endblock %}

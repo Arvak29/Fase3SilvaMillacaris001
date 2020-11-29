@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container col-md-4" id="canvas_r">
+    <div class="container" id="canvas_re"></div>
+        <div class="container">
+            <h2 id="sign_up">Sign up</h2>
+        
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="fieldWrapper">
+                    <h5 id="signuperror">{{ field.errors }}</h5>
+                    {{ field.label_tag }}: {{ field }}
+                </div>
+            {% endfor %}
+
+                <br><br>
+                <div id="button_r">
+                    <input class="btn" type="submit" value="Submit"/>
+                </div>
+                <br><br>
+
+            </form>
+        </div>
+    </div> 
+</div>
+{% endblock %}

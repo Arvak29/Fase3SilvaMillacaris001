@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Retro Games</title>{% endblock %}
+    <!--Static-->
+    <!--CSS-->
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <!--Bootstrap-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--Custom-->
+    <script src="{% static 'JS/functions.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-xl navbar-dark navbar-#1aff008c sticky-top">
+      <div class="row" id="logo_web">
+        {% block nav %}
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'img/Espeon_pixel.png' %}" width="40" height="40" alt="">
+        </a>
+        {% endblock %}
+        <h1>Retro Games</h1>
+       </div>
+    </nav>
+  </header>
+
+  
+      {% block content %}{% endblock %}
+
+      {% block footer %}
+      <footer class="site-footer">
+        <div class="col-md-3">
+          <h2>
+            <img src="{% static 'img/Espeon_pixel.png' %}" width="30" height="30" alt="">
+            Retro Games
+          </h2>
+        </div>
+        <div class="container col-md-11">
+          <div class="col-md-6">
+            <address>
+              #1265, Street of place,<br>
+              City of place,<br>
+              Country.
+            </address>
+          </div>
+          <div class="bottom-footer">
+            <div class="col-md-7">
+              <p id="rights_reserved">© 2020, Retro Games, Inc. All rights reserved. Espeon and its logo are Retro Games’s trademarks or registered trademarks in the US and elsewhere.</p>
+            </div>
+            <br>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
+</body>
+</html>

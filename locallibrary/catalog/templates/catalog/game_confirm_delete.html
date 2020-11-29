@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container" id="canvas_r">
+    <div class="container">
+        <h2 id="sign_up">CONFIRM DELETE?</h2>
+        <br>
+
+        <div class="row-md-2 justify-content-center" id="game_detail">
+            <div class="card text-center">
+              <div class="card-body">
+                
+                <img id="card" src="{{game.img.url}}" alt="">
+                
+                
+                <h4 class="card-title">{{ game.title| truncatechars:20 | safe }}</h4>
+                
+                <h4 id="game_details" class="card-title">{{game.price}} </h4>
+              </div>
+            </div>
+        </div>
+
+                
+        <br><br>
+            <form action="" method="post">
+                <div id="button_r">
+                    {% csrf_token %}
+                    <button class="btn" id="btn_addgame" type="submit" value="Delete" action="">Confirm Delete</button>
+                </div>
+            </form>
+        <br><br>
+    </div>
+</div>
+
+{% endblock %}

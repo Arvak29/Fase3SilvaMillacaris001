@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+    
+{% block content %}
+<article>
+  <!--  BANNER SELECTOR -->
+  <div class="container col-md-10" id="canvas">
+    <div class="container col-md-4 form-inline" id="banner_selector">
+      <div id="banner_selector_spacing">
+        <a href="/Store/1">
+          <h2 id="banner_selector_tittle">Playstation</h2>
+        </a>
+        {% load static %}
+        <img src="{% static 'img/icons/space-bar.png' %}" alt="" height="30px" id="banner_selector_bar">
+        <a href="/Store/2">
+          <h2 id="banner_selector_tittle">Xbox</h2>
+        </a>
+        <img src="{% static 'img/icons/space-bar.png' %}" alt="" height="30px" id="banner_selector_bar">
+        <a href="/Store/3">
+          <h2 id="banner_selector_tittle">Nintendo</h2>
+        </a>
+      </div>
+    </div>
+    <div class="container">
+      <h1>{{ plataform.name }}</h1>
+      {% if request.user.is_superuser %}
+      <div class="container col-12">
+        <div class="row" id="add_game_container">
+          <a class="btn" href="/add_game/">Add New Game</a>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+    <div class="container col-md-11">
+
+      <div class="row" id="product_canvas">       
+        
+        {% for game in plataform.game_set.all %}
+        <div class="col-md-2" id="product">
+            <div class="card text-center">
+              <div class="card-body">
+                
+
+
+                <a href="/game/{{game.id}}">
+                  <img id="card" src="{{game.img.url}}" alt="">
+                </a>
+                
+                
+                <h4 class="card-title">{{ game.title| truncatechars:20 | safe }}</h4>
+                
+                <h4 id="game_details" class="card-title">{{game.price}} </h4>
+                <a href="#" class="btn" onclick="addToCart()">Add to cart</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

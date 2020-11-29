@@ -1,0 +1,68 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<p></p>
+<div class="container col-md-4" id="canvas_r">
+    <div class="container">
+        <h2 id="sign_up">Add Game</h2>
+    
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!--{{ form | crispy }}-->
+
+            <div class="form-group">
+                <label>Title</label>
+                {{form.title}}
+            </div>
+            
+            <div class="form-group">
+                <label>Developer</label>
+                {{form.developer}}
+            </div>
+            
+            <div class="form-group">
+                <label>Description</label>
+                {{form.description}}
+            </div>
+            
+            <div class="form-group">
+                <label>Genre</label>
+                {{form.genre}}
+            </div>
+            
+            <div class="form-group">
+                <label id="label_addgame">Plataform</label>
+                {{form.plataform}}
+            </div>
+            
+            <div class="form-group">
+                <label id="label_addgame">Players</label>
+                {{form.players}}
+            </div>
+            
+            <div class="form-group">
+                <label>Price</label>
+                {{form.price}}
+            </div>
+            
+            <div class="form-group">
+                <label>Thumbnail</label>
+                {{form.img}}
+            </div>
+
+            <br><br>
+            <div id="button_r">
+                <input class="btn" type="submit" value="Add Game"/>
+            </div>
+            <br><br>
+
+        </form>
+    </div>
+</div> 
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container col-md-4" id="canvas_r">
+    <div class="container">
+        {% if user.is_authenticated %}
+        <h2 id="sign_up">Welcome!</h2>
+        <br>
+        <h3 id="welcome">Hello! {{ user.username }}</h3>
+      {% else %}
+      <h2 id="sign_up">See you soon!</h2>
+        <br>
+        <h5 id="welcome">You are not logged in</h5>
+        <!--<a href="{% url 'login' %}">Login</a>-->
+      {% endif %}
+        <br><br>
+    </div>
+</div>
+
+{% endblock %}
