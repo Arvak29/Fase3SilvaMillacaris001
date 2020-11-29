@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container col-md-4" id="canvas_r">
+    <div class="container">
+        <h2 id="sign_up">Settings</h2>
+        <div class="form-group">
+            
+            <img src="{{ user.profile.image.url }}" alt="Avatar" class="avatar" id="img_center">
+            
+            <p class="text_center">
+                <label>USERNAME: </label>
+                {{user.username}}
+            </p>
+            <p class="text_center">
+                <label>EMAIL: </label>
+                {{user.email}}
+            </p>
+            <p class="text_center">
+                <label>FIRST NAME: </label>
+                {{user.first_name}}
+            </p>
+            <p class="text_center">
+                <label>LAST NAME: </label>
+                {{user.last_name}}
+            </p>
+        </div>
+        <div class="col-md-12" id="modal_content">
+            <span class="btn"><a href="/accounts/logout/" id="signUp">Logout</a></span>
+            {% if request.user.is_superuser %}
+            <span class="btn"><a href="/accounts/password_change/" id="signUp">Change password</a></span>
+            {% else %}
+            <span class="btn"><a href="/accounts/password_reset/" id="signUp">Change password</a></span>
+            {% endif %}
+        </div>
+        <br><br>
+    </div>
+</div>
+
+{% endblock %}
